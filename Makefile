@@ -128,7 +128,6 @@ BASE_IMAGE_UUID = 04a48d7d-6bb5-4e83-8c3b-e60a99e0f48f
 BUILDIMAGE_NAME = manta-pgstatsmon
 BUILDIMAGE_DESC	= Postgres Monitoring Service
 BUILDIMAGE_PKG	= $(TOP)/$(RELEASE_TARBALL)
-BUILDIMAGE_STAGEDIR = /tmp/buildimage-$(NAME)-$(STAMP)
 AGENTS		= amon config registrar
 
 #
