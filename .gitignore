@@ -2,3 +2,4 @@
 bits
 node_modules
 test/.not_production
+pgstatsmon-pkg-*.bz2
