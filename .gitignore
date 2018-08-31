@@ -1,3 +1,4 @@
+/make_stamps
 bits
 node_modules
 test/.not_production
