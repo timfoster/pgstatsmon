@@ -20,7 +20,7 @@ CATEST	= deps/catest/catest
 # Variables
 #
 
-NAME	:= pgstatsmon
+NAME	= pgstatsmon
 
 #
 # Prebuilt Node.js
