@@ -64,7 +64,7 @@ PROTO			= proto
 PREFIX			= /opt/smartdc/$(NAME)
 LIB_FILES		= $(notdir $(wildcard lib/*.js))
 ETC_FILES		= $(notdir $(wildcard etc/*.json))
-RELEASE_TARBALL		= $(NAME)-pkg-$(STAMP).tar.bz2
+RELEASE_TARBALL		= $(NAME)-pkg-$(STAMP).tar.gz
 NODE_MODULE_INSTALL	= $(PREFIX)/node_modules/.ok
 
 SCRIPTS		= firstboot.sh \
@@ -143,7 +143,7 @@ install: $(INSTALL_FILES)
 .PHONY: release
 release: all install
 	@echo "==> Building $(RELEASE_TARBALL)"
-	cd $(PROTO) && gtar -jcf $(TOP)/$(RELEASE_TARBALL) \
+	cd $(PROTO) && gtar -I pigz -cf $(TOP)/$(RELEASE_TARBALL) \
 		--transform='s,^[^.],root/&,' \
 		--owner=0 --group=0 \
 		opt
