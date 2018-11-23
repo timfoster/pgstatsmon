@@ -134,7 +134,7 @@ AGENTS		= amon config registrar
 #
 
 .PHONY: all
-all: $(STAMP_NODE_PREBUILT) $(STAMP_NODE_MODULES)
+all: $(STAMP_NODE_PREBUILT) $(STAMP_NODE_MODULES) deps/manta-scripts/.git
 	$(NODE) --version
 
 .PHONY: install
