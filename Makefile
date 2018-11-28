@@ -48,7 +48,8 @@ GUARD			 = test/.not_production
 DEFAULT_TEST_CONFIG	 = test/etc/testconfig.json
 TEST_BACKEND_URL	:= $(shell json -f $(DEFAULT_TEST_CONFIG) static.dbs | json -a ip)
 
-REQUIRE_ENG := $(shell git submodule update --init deps/eng)
+ENGBLD_USE_BUILDIMAGE	= true
+ENGBLD_REQUIRE		:= $(shell git submodule update --init deps/eng)
 include ./deps/eng/tools/mk/Makefile.defs
 TOP ?= $(error Unable to access eng.git submodule Makefiles.)
 
