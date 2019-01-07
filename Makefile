@@ -81,7 +81,7 @@ BOOT_SCRIPTS_DIR	= /opt/smartdc/boot
 NODE_BITS	= bin/node \
 		  lib/libgcc_s.so.1 \
 		  lib/libstdc++.so.6
-NODE_BITS_DIR	= $(PREFIX)/node
+NODE_ENGBLD_BITS_DIR	= $(PREFIX)/node
 
 SAPI_MANIFESTS		= pgstatsmon
 SAPI_MANIFESTS_DIRS	= $(SAPI_MANIFESTS:%=$(PREFIX)/sapi_manifests/%)
@@ -100,7 +100,7 @@ INSTALL_FILES	= $(addprefix $(PROTO), \
 		  $(LIB_FILES:%=$(PREFIX)/lib/%) \
 		  $(ETC_FILES:%=$(PREFIX)/etc/%) \
 		  $(NODE_MODULE_INSTALL) \
-		  $(NODE_BITS:%=$(NODE_BITS_DIR)/%) \
+		  $(NODE_BITS:%=$(NODE_ENGBLD_BITS_DIR)/%) \
 		  $(BOOT_SCRIPTS:%=$(BOOT_SCRIPTS_DIR)/%) \
 		  $(SAPI_MANIFESTS_DIRS:%=%/template) \
 		  $(SAPI_MANIFESTS_DIRS:%=%/manifest.json) \
@@ -113,9 +113,9 @@ INSTALL_DIRS	= $(addprefix $(PROTO), \
 		  $(PREFIX)/lib \
 		  $(PREFIX)/etc \
 		  $(SCRIPTS_DIR) \
-		  $(NODE_BITS_DIR) \
-		  $(NODE_BITS_DIR)/bin \
-		  $(NODE_BITS_DIR)/lib \
+		  $(NODE_ENGBLD_BITS_DIR) \
+		  $(NODE_ENGBLD_BITS_DIR)/bin \
+		  $(NODE_ENGBLD_BITS_DIR)/lib \
 		  $(BOOT_SCRIPTS_DIR) \
 		  $(SMF_MANIFEST_DIR) \
 		  $(SAPI_MANIFESTS_DIRS) \
@@ -150,12 +150,12 @@ release: all install
 
 .PHONY: publish
 publish: release
-	@if [[ -z "$(BITS_DIR)" ]]; then \
-		echo "error: 'BITS_DIR' must be set for 'publish' target"; \
+	@if [[ -z "$(ENGBLD_BITS_DIR)" ]]; then \
+		echo "error: 'ENGBLD_BITS_DIR' must be set for 'publish' target"; \
 		exit 1; \
 	fi
-	mkdir -p $(BITS_DIR)/$(NAME)
-	cp $(RELEASE_TARBALL) $(BITS_DIR)/$(NAME)/$(RELEASE_TARBALL)
+	mkdir -p $(ENGBLD_BITS_DIR)/$(NAME)
+	cp $(RELEASE_TARBALL) $(ENGBLD_BITS_DIR)/$(NAME)/$(RELEASE_TARBALL)
 
 .PHONY: test
 test: $(GUARD) all
