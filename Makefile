@@ -12,8 +12,6 @@
 # Tools must be installed on the path
 #
 
-JSL	= jsl
-JSSTYLE	= jsstyle
 CATEST	= deps/catest/catest
 
 #
