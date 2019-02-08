@@ -7,3 +7,6 @@
 [submodule "deps/eng"]
 	path = deps/eng
 	url = https://github.com/joyent/eng.git
+[submodule "deps/javascriptlint"]
+	path = deps/javascriptlint
+	url = https://github.com/davepacheco/javascriptlint.git

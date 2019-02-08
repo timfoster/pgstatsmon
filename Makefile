@@ -227,8 +227,8 @@ $(PROTO)$(PREFIX)/sapi_manifests/%: sapi_manifests/% | $(INSTALL_DIRS)
 $(PROTO)$(PREFIX)/smf/manifests/%: smf/manifests/% | $(INSTALL_DIRS)
 	$(INSTALL_FILE)
 
-include ./deps/eng/tools/mk/Makefile.targ
 include ./deps/eng/tools/mk/Makefile.deps
+include ./deps/eng/tools/mk/Makefile.targ
 include ./deps/eng/tools/mk/Makefile.node_modules.targ
 include ./deps/eng/tools/mk/Makefile.node_prebuilt.targ
 include ./deps/eng/tools/mk/Makefile.agent_prebuilt.targ
